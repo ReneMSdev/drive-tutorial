@@ -1,42 +1,42 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { mockFiles } from "../lib/mock-data";
-import { Folder, FileIcon, Upload, ChevronRight } from "lucide-react";
-import Link from "next/link";
-import { Button } from "~/components/ui/button";
+import { useState } from "react"
+import { mockFiles } from "../lib/mock-data"
+import { Folder, FileIcon, Upload, ChevronRight } from "lucide-react"
+import Link from "next/link"
+import { Button } from "~/components/ui/button"
 
 export default function GoogleDriveClone() {
-  const [currentFolder, setCurrentFolder] = useState<string | null>(null);
+  const [currentFolder, setCurrentFolder] = useState<string | null>(null)
 
   const getCurrentFiles = () => {
-    return mockFiles.filter((file) => file.parent === currentFolder);
-  };
+    return mockFiles.filter((file) => file.parent === currentFolder)
+  }
 
   const handleFolderClick = (folderId: string) => {
-    setCurrentFolder(folderId);
-  };
+    setCurrentFolder(folderId)
+  }
 
   const getBreadcrumbs = () => {
-    const breadcrumbs = [];
-    let currentId = currentFolder;
+    const breadcrumbs = []
+    let currentId = currentFolder
 
     while (currentId !== null) {
-      const folder = mockFiles.find((file) => file.id === currentId);
+      const folder = mockFiles.find((file) => file.id === currentId)
       if (folder) {
-        breadcrumbs.unshift(folder);
-        currentId = folder.parent;
+        breadcrumbs.unshift(folder)
+        currentId = folder.parent
       } else {
-        break;
+        break
       }
     }
 
-    return breadcrumbs;
-  };
+    return breadcrumbs
+  }
 
   const handleUpload = () => {
-    alert("Upload functionality would be implemented here");
-  };
+    alert("Upload functionality would be implemented here")
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 p-8 text-gray-100">
@@ -118,5 +118,5 @@ export default function GoogleDriveClone() {
         </div>
       </div>
     </div>
-  );
+  )
 }
