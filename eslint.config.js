@@ -46,6 +46,8 @@ export default tseslint.config(
         "error",
         { drizzleObjectName: ["db", "ctx.db"] },
       ],
+      semi: ["error", "never"],
+      "@typescript-eslint/semi": ["error", "never"],
     },
   },
   {
