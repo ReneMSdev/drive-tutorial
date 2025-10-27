@@ -2,7 +2,6 @@ import {
   int,
   bigint,
   text,
-  singlestoreTable,
   index,
   singlestoreTableCreator,
 } from "drizzle-orm/singlestore-core"
