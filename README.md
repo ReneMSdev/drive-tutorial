@@ -3,6 +3,13 @@
 ## TODO
 
 - [x] Set up database and data model
-- [ ] Move folder open stat to URL
+- [x] Move folder open stat to URL
 - [ ] Add auth
 - [ ] Add file uploading
+- [ ] Add analytics
+
+## 10-27-2025
+
+- [ ] Change folder to link components, remove all client state
+- [ ] clean up the database and data fetching patterns
+- [ ] Real homepage
