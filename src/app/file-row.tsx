@@ -28,10 +28,7 @@ export const FileRow = (props: { file: typeof files_table.$inferSelect }) => {
   )
 }
 
-export const FolderRow = (props: {
-  folder: typeof folders.$inferSelect
-  handleFolderClick: () => void
-}) => {
+export const FolderRow = (props: { folder: typeof folders.$inferSelect }) => {
   const { folder } = props
   return (
     <li
