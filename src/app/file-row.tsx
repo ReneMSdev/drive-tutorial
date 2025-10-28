@@ -1,4 +1,5 @@
-import { Folder as FolderIcon, FileIcon } from "lucide-react"
+import { Folder as FolderIcon, FileIcon, Link2 } from "lucide-react"
+import Link from "next/link"
 import type { folders, files } from "~/server/db/schema"
 
 // const FileRow = ({ name, size }: FileRowProps) => {
@@ -11,14 +12,14 @@ export const FileRow = (props: { file: typeof files.$inferSelect }) => {
     >
       <div className="grid grid-cols-12 items-center gap-4">
         <div className="col-span-6 flex items-center">
-          <a
-            href={file.url ?? ""}
+          <Link
+            href={`/f/${file.parent}`}
             className="flex items-center text-gray-100 hover:text-blue-400"
             target="_blank"
           >
             <FileIcon className="mr-3" size={20} />
             {file.name}
-          </a>
+          </Link>
         </div>
         <div className="col-span-3 text-gray-400">{"file"}</div>
         <div className="col-span-3 text-gray-400">{file.size}</div>
@@ -31,7 +32,7 @@ export const FolderRow = (props: {
   folder: typeof folders.$inferSelect
   handleFolderClick: () => void
 }) => {
-  const { folder, handleFolderClick } = props
+  const { folder } = props
   return (
     <li
       key={folder.id}
@@ -39,13 +40,13 @@ export const FolderRow = (props: {
     >
       <div className="grid grid-cols-12 items-center gap-4">
         <div className="col-span-6 flex items-center">
-          <button
-            onClick={() => handleFolderClick()}
+          <Link
+            href={`/f/${folder.id}`}
             className="flex items-center text-gray-100 hover:text-blue-400"
           >
             <FolderIcon className="mr-3" size={20} />
             {folder.name}
-          </button>
+          </Link>
         </div>
         <div className="col-span-3 text-gray-400"></div>
         <div className="col-span-3 text-gray-400"></div>
