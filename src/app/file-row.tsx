@@ -1,9 +1,9 @@
-import { Folder as FolderIcon, FileIcon, Link2 } from "lucide-react"
+import { Folder as FolderIcon, FileIcon } from "lucide-react"
 import Link from "next/link"
-import type { folders, files } from "~/server/db/schema"
+import type { folders, files_table } from "~/server/db/schema"
 
 // const FileRow = ({ name, size }: FileRowProps) => {
-export const FileRow = (props: { file: typeof files.$inferSelect }) => {
+export const FileRow = (props: { file: typeof files_table.$inferSelect }) => {
   const { file } = props
   return (
     <li
