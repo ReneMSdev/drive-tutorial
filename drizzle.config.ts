@@ -4,13 +4,13 @@ import { env } from "~/env"
 export default {
   schema: "./src/server/db/schema.ts",
   dialect: "singlestore",
-  // tablesFilter: ["drive-tutorial_*"],
+  // tablesFilter: ["drive_tutorial_*"],
   dbCredentials: {
-    host: env.SINGLESTORE_HOST as string,
+    host: env.SINGLESTORE_HOST,
     port: Number(env.SINGLESTORE_PORT) || 3306,
-    user: env.SINGLESTORE_USER as string,
-    password: env.SINGLESTORE_PASS as string,
-    database: env.SINGLESTORE_DB_NAME as string,
+    user: env.SINGLESTORE_USER,
+    password: env.SINGLESTORE_PASS,
+    database: env.SINGLESTORE_DB_NAME,
     ssl: {},
   },
 } satisfies Config
