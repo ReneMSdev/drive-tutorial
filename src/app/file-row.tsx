@@ -13,9 +13,10 @@ export const FileRow = (props: { file: typeof files_table.$inferSelect }) => {
       <div className="grid grid-cols-12 items-center gap-4">
         <div className="col-span-6 flex items-center">
           <Link
-            href={`/f/${file.parent}`}
+            href={file.url ?? ""}
             className="flex items-center text-gray-100 hover:text-blue-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <FileIcon className="mr-3" size={20} />
             {file.name}
