@@ -5,11 +5,12 @@
 - [x] Set up database and data model
 - [x] Move folder open stat to URL
 - [x] Add auth
-- [ ] Add file uploading
+- [x] Add file uploading
 - [ ] Add analytics
 
-## 10-27-2025
+## 10-29-2025
 
-- [x] Change folder to link components, remove all client state
-- [x] clean up the database and data fetching patterns
 - [ ] Real homepage
+- [ ] Upload files to the right folder
+- [ ] Delete files button
+- [ ] Allow files that aren't images to be uploaded

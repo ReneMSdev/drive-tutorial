@@ -1,15 +1,9 @@
 import "~/styles/globals.css"
+import "@uploadthing/react/styles.css"
 
 import { type Metadata } from "next"
 import { Geist } from "next/font/google"
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs"
+import { ClerkProvider } from "@clerk/nextjs"
 
 const geist = Geist({
   subsets: ["latin"],
