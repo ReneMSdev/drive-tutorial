@@ -3,11 +3,25 @@ import "server-only"
 import { db } from "~/server/db"
 import {
   files_table as filesSchema,
-  folders as foldersSchema,
+  folders_table as foldersSchema,
 } from "~/server/db/schema"
 import { eq } from "drizzle-orm"
 
 export const QUERIES = {
+  getFolders: function (folderId: number) {
+    return db
+      .select()
+      .from(foldersSchema)
+      .where(eq(foldersSchema.parent, folderId))
+      .orderBy(foldersSchema.id)
+  },
+  getFiles: function (folderId: number) {
+    return db
+      .select()
+      .from(filesSchema)
+      .where(eq(filesSchema.parent, folderId))
+      .orderBy(filesSchema.id)
+  },
   getAllParentsForFolder: async function (folderId: number) {
     const parents = []
     let currentId: number | null = folderId
@@ -24,15 +38,12 @@ export const QUERIES = {
     }
     return parents
   },
-  getFolders: function (folderId: number) {
-    return db
+  getFolderById: async function (folderId: number) {
+    const folder = await db
       .select()
       .from(foldersSchema)
-      .where(eq(foldersSchema.parent, folderId))
-      .orderBy(foldersSchema.id)
-  },
-  getFiles: function (folderId: number) {
-    return db.select().from(filesSchema).where(eq(filesSchema.parent, folderId))
+      .where(eq(foldersSchema.id, folderId))
+    return folder[0]
   },
 }
 
@@ -48,7 +59,7 @@ export const MUTATIONS = {
   }) {
     return await db.insert(filesSchema).values({
       ...input.file,
-      parent: input.file.parent,
+      ownerId: input.userId,
     })
   },
 }
