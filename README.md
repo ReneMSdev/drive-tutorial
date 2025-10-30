@@ -6,12 +6,10 @@
 - [x] Move folder open stat to URL
 - [x] Add auth
 - [x] Add file uploading
-- [ ] Add analytics
-
-## 10-29-2025
-
 - [x] Add "ownership" to files and folders
 - [x] Upload files to the right folder
-- [ ] Delete files button
-- [ ] Allow files that aren't images to be uploaded
-- [ ] Real homepage
+- [x] Allow files that aren't images to be uploaded
+
+- [ ] Add analytics
+- [ ] Add delete
+- [ ] Real homepage + onboarding
